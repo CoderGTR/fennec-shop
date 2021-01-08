@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online shop</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+
+<header class="header">
+
+<nav class="navbar navbar-expand-lg fixed-top ">
+        <div class="container">
+        <a class="navbar-brand" href="#"><i class="fa fa-bolt" aria-hidden="true"></i>Shop</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
+            <div class="form-group col-md-2">
+                <select id="inputState" class="form-control-md select-sort">
+                    <option value="price-exp">Expensive first</option>
+                    <option value="price-cheap">Cheap first</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-3">
+                <select id="inputState" class="form-control-md categories">
+
+                </select>
+            </div>
+
+            <ul class="navbar-nav mr-4 d-flex">
+                <form class="form-inline search">
+                    <input class="form-control mr-sm-2 input-search" type="search" placeholder="Search" aria-label="Search">
+<!--                    <button class="btn btn-outline-warning my-2 my-sm-0 search-button" type="submit"><i class="fa fa-search"></i></button>-->
+                </form>
+
+                <li class="nav-item">
+                <a class="nav-link" data-value="about" href="#">About</a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link " data-value="team" href="#">Team</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " data-value="contact" href="#">Contact</a>
+            </li>
+
+                <li class="nav-item">
+                    <a class="nav-link bg-light text-info cart" data-value="blog" href="#">Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                </li>
+        </ul>
+        </div>
+        </div>
+</nav>
+
+</header>
+
+<div class="cards">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-4 list-of-cards">
+
+
+
+
+
+    </div>
+
+
+<script src="main.js" type="module"></script>
+</body>
+</html>

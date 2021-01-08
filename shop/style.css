@@ -1,0 +1,72 @@
+.navbar{
+    background:#F97300;
+}
+.nav-link , .navbar-brand{
+    color: #f4f4f4; cursor: pointer;
+}
+.nav-link{
+    margin-right: 1em !important;
+}
+.nav-link:hover{
+    background: #f4f4f4; color: #f97300;
+}
+.navbar-collapse{
+    justify-content: flex-end;
+}
+.navbar-toggler {
+    background:#fff !important;
+}
+.navbar-collapse{
+    justify-content: flex-end;
+}
+
+.cards {
+    margin-top: 10%;
+}
+
+.card {
+    margin: 0;
+    transition: all 0.3s linear;
+}
+.card:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    z-index: 100;
+}
+
+
+.search {
+    margin-right: 5px;
+}
+
+.search-button {
+    margin-left: 0;
+}
+
+.form-group {
+    margin-bottom: 0 !important;
+}
+
+#inputState {
+    border-radius: 10px;
+    outline: none;
+    max-width: 160px;
+    width: 100%;
+    padding-left: 5px;
+}
+
+.fa-bolt {
+    margin-right: 2px;
+}
+
+.cart {
+    border-radius: 15px;
+}
+
+
+
+/*.container {*/
+/*    max-width: 90%;*/
+/*    margin: 0 auto;*/
+/*}*/
