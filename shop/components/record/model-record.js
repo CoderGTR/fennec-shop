@@ -59,9 +59,7 @@ export default class ModelRecord {
 
         return arr.reduce((acc, {content}, i) => {
 
-            if (i<=8){
-                return acc
-                } else {
+
                     const index = Math.floor(i / shift);
                     const {name, type} = this.names[i % shift];
 
@@ -72,8 +70,12 @@ export default class ModelRecord {
                     acc[index][name] = this.parseContent(content.$t, type)
 
                     return acc
-                 }
-        }, [])
+
+        }, []).slice(1, arr.length).map(el => {
+
+            el.val = (+`${ Date.now() }${ Math.random().toString().slice(3,7) }`).toString(16);
+            return el;
+        });
     }
 
     parseContent = (content, type = 'string') => {
@@ -133,5 +135,13 @@ export default class ModelRecord {
 
         return filteredData;
     }
+
+
+    getRecordById = id => {
+        return this.records.find(el => el.val == id);
+    }
+
+
+
 
 }

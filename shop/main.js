@@ -1,8 +1,14 @@
 import ControllerRecord from "./components/record/controller-record.js";
 import Publisher from "./components/helpers/publisher.js";
+import ControllerDetails from "./components/details/controller-details.js";
+import ControllerCart from "./components/cart/controller-cart.js";
+// import SortSearchController from "./components/sort-search/sort-search-controller.js";
 
 const publisher = new Publisher;
-const record = new ControllerRecord(publisher);
+const record = new ControllerRecord(publisher.methods);
+const details = new ControllerDetails(publisher.methods);
+const cart = new ControllerCart(publisher.methods);
+// const sortSearch = new SortSearchController(publisher.methods);
 
 // document.querySelector('.get-data').addEventListener('click', () => {
     // const link = 'https://spreadsheets.google.com/feeds/cells/1PXorfz2O2NqH-FcW0nA-HhmtZMmSSwgHheifWc0e1tU/3/public/full?alt=json';

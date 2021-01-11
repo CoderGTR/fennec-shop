@@ -6,21 +6,25 @@ export default class ViewRecord {
     htmlHeaderLogo = document.querySelector('.navbar-brand');
 
 
-    constructor(cbSort, cbSearch, cbFilter, initRender) {
+    constructor(cbSort, cbSearch, cbFilter, initRender, onDetails, onAdd) {
         this.htmlSort.addEventListener('input', cbSort)
         this.htmlSearch.addEventListener('input', cbSearch)
         this.htmlCategories.addEventListener('input', cbFilter)
         this.htmlHeaderLogo.addEventListener('click', initRender)
+        this.onDetails = onDetails;
+        this.onAddHandler = onAdd;
+
     }
 
     render = arr => {
-        console.log(arr)
         this.htmlCards.innerHTML = arr.map(this.renderCard).join('');
+        [...this.htmlCards.querySelectorAll('.btn-container .btn-details')].forEach(btn => btn.addEventListener('click', this.onDetails));
+        [...this.htmlCards.querySelectorAll('.btn-container .add-to-cart')].forEach(btn => btn.addEventListener('click', this.onAddHandler));
     }
 
 
 
-    renderCard = ({ID, PRODUCT_NAME, MANUFACTURE, CATEGORY, INGRIDIENTS , AMOUNT, UNITS, PRICE, IMG_LINK}) => {
+    renderCard = ({ID, PRODUCT_NAME, MANUFACTURE, CATEGORY, INGRIDIENTS , AMOUNT, UNITS, PRICE, IMG_LINK, val}) => {
         return `
             <div class="col mb-4">
                 <div class="card text-center bg-light border-secondary h-100">
@@ -32,23 +36,25 @@ export default class ViewRecord {
                             <strong>${UNITS}</strong>
                         </p>
                          <p class="card-text text-info">${PRICE} UAH</p>
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-between align-items-center btn-container">
                        
-                        <button type="button btn-sm" class="btn btn-info">In cart</button>
-                        <button type="button" class="btn btn-outline-info">More details</button>
+                        <button type="button btn-sm" 
+                        class="btn btn-info add-to-cart"
+                        data-add-id="${val}"
+                        >In cart</button>
+                        <button type="button" class="btn btn-outline-info btn-details"
+                         data-bs-toggle="modal" data-bs-target="#detailsModal"
+                         data-details-id="${val}">More details</button>
+                            
                         </div>
                     </div>
                 </div>
             </div>
                 `
+
+
     }
 
-    renderCategories = arr => {
-        this.htmlCategories.innerHTML = arr.map(this.renderOption).join('');
-    }
 
-    renderOption = (el) => {
-        return `<option class="${el}">${el}</option>`
-    }
 
 }

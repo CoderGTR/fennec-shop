@@ -37,7 +37,9 @@
 
 
 .search {
-    margin-right: 5px;
+    margin-right: 15px;
+    width: 200px;
+
 }
 
 .search-button {
@@ -62,9 +64,17 @@
 
 .cart {
     border-radius: 15px;
+
 }
 
+.sort-search {
+    width: 100%;
+    height: 40px;
+}
 
+.sort-wrapper {
+    margin-left: 15px;
+}
 
 /*.container {*/
 /*    max-width: 90%;*/
