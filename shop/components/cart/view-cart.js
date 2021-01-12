@@ -4,12 +4,13 @@ import ControllerCart from "./controller-cart.js";
 export default class ViewCart {
     htmlCart = document.querySelector('.cart');
     htmlModals = document.querySelector('.modals');
-    htmlSubmit = document.querySelector('.btn-submit');
 
-    constructor(onCount, onDelete) {
+    constructor(onCount, onDelete, onOrder) {
         this.model = new ModelCart();
         this.sum = this.model.getSum();
+        this.onOrder = onOrder;
         this.htmlCart.addEventListener('click', this.cartRender);
+
 
 
         this.htmlModals.insertAdjacentHTML('beforeend', `
@@ -38,11 +39,11 @@ export default class ViewCart {
        
             `);
 
-
+        this.htmlSubmit = document.querySelector('.btn-submit');
         this.onCount = onCount;
         this.onDelete = onDelete;
         this.htmlDetailsContent = document.querySelector('#cartModal .modal-body');
-
+        this.htmlSubmit.addEventListener('click', this.onOrder);
 
     }
 
@@ -111,9 +112,8 @@ export default class ViewCart {
         })
 
 
+
     //    что бы повесить увеличиватель счетчика , нужно задать уникальный ID для каждого инпута и кнопки
-
-
 
 
     }
@@ -125,5 +125,5 @@ export default class ViewCart {
         document.querySelector('.sum').innerHTML = `<hr/><p class="text-info">TOTAL: ${sum} UAH</p>`
     }
 
-    
+
 };

@@ -3,6 +3,8 @@ import SortSearchModel from "./sort-search-model.js";
 
 export default class SortSearchController {
 
+    // !iIMPORTANT  IT'S NOT WORKING ON A PROJECT. SORT-SEARCH is INSIDE RECORD
+
     constructor({ subscribe, events, notify}) {
         this.view = new SortSearchView(this.onSort, this.onSearch, this.onCategorySort);
         this.model = new SortSearchModel();

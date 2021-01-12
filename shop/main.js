@@ -2,12 +2,16 @@ import ControllerRecord from "./components/record/controller-record.js";
 import Publisher from "./components/helpers/publisher.js";
 import ControllerDetails from "./components/details/controller-details.js";
 import ControllerCart from "./components/cart/controller-cart.js";
+import OrderController from "./components/order/order-controller.js";
+import ControllerBot from "./components/bot/controller-bot.js";
 // import SortSearchController from "./components/sort-search/sort-search-controller.js";
 
 const publisher = new Publisher;
 const record = new ControllerRecord(publisher.methods);
 const details = new ControllerDetails(publisher.methods);
 const cart = new ControllerCart(publisher.methods);
+const order = new OrderController(publisher.methods);
+const bot = new ControllerBot(publisher.methods);
 // const sortSearch = new SortSearchController(publisher.methods);
 
 // document.querySelector('.get-data').addEventListener('click', () => {

@@ -2,9 +2,11 @@ import ModelCart from "./model-cart.js";
 import ViewCart from "./view-cart.js";
 
 export default class ControllerCart {
-    constructor({events, subscribe}) {
+    constructor({events, subscribe, notify}) {
         this.model = new ModelCart();
-        this.view = new ViewCart(this.onCount, this.onDelete);
+        this.view = new ViewCart(this.onCount, this.onDelete, this.onOrder);
+        this.notify = notify;
+        this.events = events;
 
         // this.view.cartRender();
         subscribe(events.ADD_TO_CART, this.addHandler)
@@ -44,5 +46,12 @@ export default class ControllerCart {
         const data = ev.target.dataset.value;
         this.model.onDelete(data);
         this.view.cartRender();
+    }
+
+    onOrder = () => {
+        const order = JSON.parse(localStorage.getItem('cartItems'));
+        console.log('ORDER!')
+        order.push({sum: this.model.getSum()});
+        this.notify(this.events.ORDER, order);
     }
 };
