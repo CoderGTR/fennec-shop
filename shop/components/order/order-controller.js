@@ -1,14 +1,16 @@
 import OrderView from "./order-view.js";
 import OrderModel from "./order-model.js";
+import Publisher from "../helpers/publisher.js";
 
 export default class OrderController {
-    constructor({events, subscribe, notify}) {
+    constructor() {
         this.view = new OrderView(this.checkInput, this.onSubmit);
+        this.publisher = new Publisher();
         this.model = new OrderModel();
 
-        this.events = events;
-        this.notify = notify;
-        subscribe(this.events.ORDER, this.initOrderList);
+        this.events = this.publisher.events;
+        this.notify = this.publisher.notify;
+        this.publisher.subscribe(this.events.ORDER, this.initOrderList);
     }
 
     initOrderList = data => {

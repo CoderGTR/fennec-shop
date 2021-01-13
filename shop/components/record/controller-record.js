@@ -3,12 +3,13 @@ import ViewRecord from "./view-record.js";
 import Publisher from "../helpers/publisher.js";
 
 export default class ControllerRecord {
-    constructor ({ notify, events }) {
+    constructor () {
         this.model = new ModelRecord();
+        this.publisher = new Publisher();
         this.view = new ViewRecord(this.onSort, this.onSearch, this.onCategorySort, this.init, this.onDetails, this.onAdd);
 
-        this.notify = notify;
-        this.events = events;
+        this.notify = this.publisher.notify;
+        this.events = this.publisher.events;
 
         this.init()
         // this.initCategories();

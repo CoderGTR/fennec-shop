@@ -1,15 +1,17 @@
 import ModelBot from "./model-bot.js";
+import Publisher from "../helpers/publisher.js";
 
 export default class ControllerBot {
-    constructor({subscribe, notify, events}) {
-        this.model = new ModelBot(this.onUserData)
+    constructor() {
+        this.model = new ModelBot(this.onUserData);
+        this.publisher = new Publisher();
 
-        this.notify = notify
-        this.events = events;
+        this.notify = this.publisher.notify;
+        this.events = this.publisher.events;
 
-        subscribe(this.events.SEND_MESSAGE, this.onSend);
-        subscribe(this.events.ORDER, this.getOrder);
-        subscribe(this.events.USER_DATA, this.onUserData)
+        this.publisher.subscribe(this.events.SEND_MESSAGE, this.onSend);
+        this.publisher.subscribe(this.events.ORDER, this.getOrder);
+        this.publisher.subscribe(this.events.USER_DATA, this.onUserData)
     }
 
     getOrder = data => {

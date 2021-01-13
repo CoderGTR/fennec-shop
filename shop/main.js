@@ -7,13 +7,13 @@ import ControllerBot from "./components/bot/controller-bot.js";
 import ControllerHistory from "./components/history/controller-history.js";
 // import SortSearchController from "./components/sort-search/sort-search-controller.js";
 
-const publisher = new Publisher;
-const record = new ControllerRecord(publisher.methods);
-const details = new ControllerDetails(publisher.methods);
-const cart = new ControllerCart(publisher.methods);
-const order = new OrderController(publisher.methods);
-const bot = new ControllerBot(publisher.methods);
-const history = new ControllerHistory(publisher.methods)
+
+const record = new ControllerRecord();
+const details = new ControllerDetails();
+const cart = new ControllerCart();
+const order = new OrderController();
+const bot = new ControllerBot();
+const history = new ControllerHistory()
 // const sortSearch = new SortSearchController(publisher.methods);
 
 // document.querySelector('.get-data').addEventListener('click', () => {

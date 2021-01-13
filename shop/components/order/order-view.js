@@ -66,7 +66,7 @@ export default class OrderView {
         document.querySelector('#email').addEventListener('input', (ev) => {
             let modalContent = document.querySelector(`.descr-${ev.target.id}`);
             const result = this.cbCheck(ev.target.value, ev.target.dataset.name)
-            console.log(result)
+
             if(result !== true) {
                 modalContent.innerHTML =  `<p class="text-warning">${result}</p>`
             }else{
@@ -98,7 +98,7 @@ export default class OrderView {
             phone : this.phone.value.trim(),
             email : this.email.value.trim()
         }
-    }
+    };
 
     // clearModal = () => {
     //     const htmlModal = document.querySelector('#cartModal');

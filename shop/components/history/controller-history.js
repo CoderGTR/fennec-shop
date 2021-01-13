@@ -1,9 +1,11 @@
 import ViewHistory from "./view-history.js";
 import ModelHistory from "./model-history.js";
+import Publisher from "../helpers/publisher.js";
 
 export default class ControllerHistory {
-    constructor({events, subscribe, notify}) {
-        this.events = events;
+    constructor() {
+        this.publisher = new Publisher();
+        this.events = this.publisher.events;
         this.view = new ViewHistory(this.initHistory, this.countPrice);
         this.model = new ModelHistory()
     };

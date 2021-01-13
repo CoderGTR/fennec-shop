@@ -1,7 +1,19 @@
-import events from "./events.js";
-
-export default class Publisher{
+import events from './events.js';
+export default class Publisher {
     listeners = {};
+
+    constructor() {
+        if (typeof Publisher.instance === 'object') return Publisher.instance;
+
+        this.events = events;
+        this.subscribe = this.subscribe;
+        this.unsubscribe = this.unsubscribe;
+        this.notify = this.notify;
+
+        Publisher.instance = this;
+
+        return this;
+    }
 
     subscribe = (eventType, listener) => {
         this.getListeners(eventType).push(listener);
@@ -16,20 +28,10 @@ export default class Publisher{
     }
 
     getListeners = eventType => {
-        if(!this.listeners[eventType]){
+        if (!this.listeners[eventType]) {
             this.listeners[eventType] = [];
         }
 
         return this.listeners[eventType];
-    }
-
-    get methods(){
-        console.log(this);
-        return {
-            notify : this.notify,
-            unsubscribe : this.unsubscribe,
-            subscribe : this.subscribe,
-            events
-        }
     }
 }
