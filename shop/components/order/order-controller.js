@@ -27,6 +27,10 @@ export default class OrderController {
         this.notify(this.events.USER_DATA, userInfo );
         this.notify(this.events.SEND_MESSAGE, JSON.stringify(userInfo));
                 this.model.sendToStorage(userInfo);
-        }
+        };
+
+    // clearModal = () => {
+    //     this.view.clearModal();
+    // }
 
 };

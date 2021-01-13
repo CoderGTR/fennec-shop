@@ -8,6 +8,7 @@ export default class OrderView {
     renderOrder = () => {
         const htmlModal = document.querySelector('#cartModal');
         // htmlModal.innerHTML = ``;
+        htmlModal.innerHTML = '';
         htmlModal.innerHTML =    `
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -98,4 +99,10 @@ export default class OrderView {
             email : this.email.value.trim()
         }
     }
+
+    // clearModal = () => {
+    //     const htmlModal = document.querySelector('#cartModal');
+    //     htmlModal.innerHTML = '';
+    // }
+
 };

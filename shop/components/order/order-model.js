@@ -1,6 +1,9 @@
 export default class OrderModel {
     data = [];
 
+    constructor(clearModal) {
+        // this.clearModal = clearModal;
+    }
 
 
     checkInputData = (data, type) => {
@@ -43,9 +46,11 @@ export default class OrderModel {
         const order = JSON.parse(localStorage.getItem('cartItems'));
         const historyOrder = JSON.parse(history) ?? [];
         historyOrder.forEach(el => arr.push(el));
-        arr.push([data , ...order]);
+        arr.push([data , [...order] , new Date()]);
         localStorage.removeItem('cartItems');
         localStorage.setItem('OrderHistory', JSON.stringify(arr));
+        // location.reload()
+        // this.clearModal();
     }
 
 };

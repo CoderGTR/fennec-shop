@@ -23,7 +23,7 @@ export default class ViewCart {
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body d-flex row">
-                   
+                        <h5 class="modal-title" id="exampleModalLabel">Your cart is empty :(</h5>
                     </div>
                     <div class="sum d-flex align-center justify-content-center">
                           <hr/><p class="text-info">TOTAL: ${this.sum} UAH</p>

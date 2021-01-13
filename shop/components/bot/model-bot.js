@@ -10,44 +10,53 @@ export default class ModelBot {
 
     validMsg = order => {
         debugger;
-        let msg = ``;
+        let msg = '';
 
 
-        console.log('STRINGIFY', this.userData)
+
 
         let objects = order.map((el, index) => {
             let str = '';
             if(el.ID === undefined){
-                str+= ` ----- SUMMARY = ${el.sum} ----- `
+                str+= ` 
+                * SUMMARY = ${el.sum} UAH*
+                `.replace(/\./g, '\.');
             }else {
-                str += `*${index} PRODUCT*
-                 \n --- *ID: *${el.ID}, \n 
-                 * Product : * ${el.PRODUCT_NAME}, 
-                 \n * Quantity: * ${el.count}, \n`;
-                 str =  str.replace(/\./g, '\.')
+                str += `
+                 ------
+                *Product *  : ${index}, 
+                *ID: *${el.ID}, 
+                *Product : * ${el.PRODUCT_NAME}, 
+                *Quantity: * ${el.count}
+                 ------
+                `.replace(/\./g, '\.');
+
             }
+            console.log(str)
             return str
         }).join('');
         let user = this.userData.map(el => {
-            return `******** CLIENT - Name: ${el.name}, phoneNumber: ${el.phone}, email: ${el.email} ***********`
+            const date = new Date();
+            return `
+                ------
+             *Client Name:* ${el.name},
+             *phoneNumber:* ${el.phone}, 
+             *email:* ${el.email} 
+             *time:* ${date.toLocaleDateString()} , ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+                .replace(/\./g, '\.');
         }).join('');
-
-        // msg = `${JSON.stringify(order)} , ${JSON.stringify(this.userData)}`;
-        msg = JSON.stringify(objects) + JSON.stringify(user);
-
-        console.log(msg)
+        msg = objects + user;
         return msg;
     }
 
     getUserData = data => {
         this.userData.push(data);
-        console.log('UUUUUSSSEEERR DATTTA', this.userData)
         return data
     }
 
     send = msg => {
         const message = encodeURI(msg);
-        return fetch(`${ this.url }${ message }`);
+        return fetch(`${ this.url }${ message }&parse_mode=markdown`).then(d =>  location.reload());
     }
 
 
