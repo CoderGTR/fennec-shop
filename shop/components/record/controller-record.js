@@ -11,14 +11,21 @@ export default class ControllerRecord {
         this.notify = this.publisher.notify;
         this.events = this.publisher.events;
 
-        this.init()
+        this.init();
+
+        this.publisher.subscribe(this.events.PAGINATE, this.onRender)
         // this.initCategories();
+    }
+
+
+    onRender = (data) => {
+        this.view.render(data)
     }
 
     init = () => {
         this.model.loadRecords()
             .then(d => {
-                this.view.render(d)
+                // this.view.render(d)
                 this.notify(this.events.LOADED_DATA, d)
             })
 
@@ -27,13 +34,14 @@ export default class ControllerRecord {
     //sort
     onSort = ev => {
         const records = this.model.sort(ev.target.value);
-
-        this.view.render(records);
+        this.notify(this.events.AFTER_SORT, records);
+        // this.view.render(records);
     }
     //search
     onSearch = ev => {
         const records = this.model.search(ev.target.value);
-        this.view.render(records)
+        this.notify(this.events.AFTER_SEARCH, records);
+        // this.view.render(records)
     }
     // filter
     // initCategories = () => {
@@ -43,8 +51,8 @@ export default class ControllerRecord {
     //filter
     onCategorySort = ev => {
         const records = this.model.sortCategory(ev.target.value);
-
-        this.view.render(records);
+        this.notify(this.events.AFTER_FILTER, records);
+        // this.view.render(records);
     }
 
     onDetails = ev => {

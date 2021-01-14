@@ -47,8 +47,7 @@ export default class ModelRecord {
                 .then(r =>  r.json())
                 .then(d => {
                     this.records = this.parseData(d.feed.entry);
-                    console.log(this.records)
-                    return this.records
+                    return this.records.sort(( a , b ) => b.PRICE - a.PRICE);
                 });
         }
 

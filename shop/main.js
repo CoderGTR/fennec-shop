@@ -5,6 +5,7 @@ import ControllerCart from "./components/cart/controller-cart.js";
 import OrderController from "./components/order/order-controller.js";
 import ControllerBot from "./components/bot/controller-bot.js";
 import ControllerHistory from "./components/history/controller-history.js";
+import PaginationController from "./components/pagination/pagination-controller.js";
 // import SortSearchController from "./components/sort-search/sort-search-controller.js";
 
 
@@ -13,7 +14,8 @@ const details = new ControllerDetails();
 const cart = new ControllerCart();
 const order = new OrderController();
 const bot = new ControllerBot();
-const history = new ControllerHistory()
+const history = new ControllerHistory();
+const pagination = new PaginationController();
 // const sortSearch = new SortSearchController(publisher.methods);
 
 // document.querySelector('.get-data').addEventListener('click', () => {

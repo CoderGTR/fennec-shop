@@ -5,7 +5,11 @@ const events = {
     ORDER : 'When user clicks in cart to make a order',
     SEND_MESSAGE : 'When user submitting an order and put info about himself to inputs. Here we have user info',
     MESSAGE_SENDED : 'When the message is already sended by TG-bot',
-    USER_DATA : 'Data of current user, who make an order'
+    USER_DATA : 'Data of current user, who make an order',
+    PAGINATE : 'When turned on pagination',
+    AFTER_SORT : 'When user made a sorting',
+    AFTER_SEARCH : 'When user made a sorting',
+    AFTER_FILTER : 'When user made a sorting'
 };
 
 export default events;

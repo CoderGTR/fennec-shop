@@ -24,7 +24,7 @@ export default class ModelBot {
             }else {
                 str += `
                  ------
-                *Product *  : ${index}, 
+                *Product №*  : ${index}, 
                 *ID: *${el.ID}, 
                 *Product : * ${el.PRODUCT_NAME}, 
                 *Quantity: * ${el.count}

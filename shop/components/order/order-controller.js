@@ -4,7 +4,7 @@ import Publisher from "../helpers/publisher.js";
 
 export default class OrderController {
     constructor() {
-        this.view = new OrderView(this.checkInput, this.onSubmit);
+        this.view = new OrderView(this.checkInput, this.onSubmit, this.onBack);
         this.publisher = new Publisher();
         this.model = new OrderModel();
 
@@ -30,6 +30,10 @@ export default class OrderController {
         this.notify(this.events.SEND_MESSAGE, JSON.stringify(userInfo));
                 this.model.sendToStorage(userInfo);
         };
+
+    onBack = () => {
+        location.reload();
+    }
 
     // clearModal = () => {
     //     this.view.clearModal();

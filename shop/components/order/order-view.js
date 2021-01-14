@@ -1,8 +1,9 @@
 export default class OrderView {
 
-    constructor(cbCheck, cbSubmit) {
+    constructor(cbCheck, cbSubmit, cbBack) {
         this.cbCheck = cbCheck;
-        this.cbSubmit = cbSubmit
+        this.cbSubmit = cbSubmit;
+        this.cbBack = cbBack;
     }
 
     renderOrder = () => {
@@ -35,6 +36,7 @@ export default class OrderView {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary back-btn" data-bs-dismiss="modal">Go back</button>
                         <button type="button" class="btn btn-primary btn-submit" data-bs-dismiss="modal" disabled="true">Submit</button>
                     </div>
                 </div>
@@ -44,12 +46,6 @@ export default class OrderView {
 
         const btnSubmit = document.querySelector('.btn-submit');
         btnSubmit.addEventListener('click', this.cbSubmit)
-
-        // const htmlSubmitBtn = document.querySelector('.btn-order-submit');
-        // const htmlBackBtn = document.querySelector('.btn-order-back');
-        //
-        // htmlSubmitBtn.addEventListener('click', this.cbSubmit);
-        // htmlBackBtn.addEventListener('click', this.cbBack);
 
         document.querySelector('#phone').addEventListener('input', (ev) => {
             let modalContent = document.querySelector(`.descr-${ev.target.id}`);
@@ -85,6 +81,8 @@ export default class OrderView {
             };
 
         });
+
+        document.querySelector('.back-btn').addEventListener('click', this.cbBack)
 
     }
 

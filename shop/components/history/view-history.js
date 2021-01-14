@@ -39,10 +39,11 @@ export default class ViewHistory {
 
     renderHistory = (arr) => {
         const tbody = document.querySelector('.table-body');
+        tbody.innerHTML = '';
         arr.forEach((el, index) => {
             let date = new Date(el[2])
 
-                tbody.insertAdjacentHTML('beforeend' , `
+                tbody.innerHTML +=  `
                 <tr>
                 
                               <th scope="row">${el[0].name}</th>
@@ -56,9 +57,9 @@ export default class ViewHistory {
                               
                            
                               </tr>
-                `)
+                `
 
-        })
+        });
     }
 
 };

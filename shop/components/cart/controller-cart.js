@@ -47,12 +47,12 @@ export default class ControllerCart {
     onDelete = ev => {
         const data = ev.target.dataset.value;
         this.model.onDelete(data);
+        this.view.sumRender();
         this.view.cartRender();
     }
 
     onOrder = () => {
         const order = JSON.parse(localStorage.getItem('cartItems'));
-        console.log('ORDER!')
         order.push({sum: this.model.getSum()});
         this.notify(this.events.ORDER, order);
     }
