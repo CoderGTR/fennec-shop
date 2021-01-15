@@ -8,75 +8,73 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
 
 <header class="header">
 
-<nav class="navbar navbar-expand-lg fixed-top ">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-        <a class="navbar-brand" href="#"><i class="fa fa-bolt" aria-hidden="true"></i>Shop</a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
-            <div class="sort-search d-flex align-items-center">
-                <div class="form-group col-md-5 sort-wrapper">
-                    <select id="inputState" class="form-control-md select-sort">
-                        <option value="price-exp">Expensive first</option>
-                        <option value="price-cheap">Cheap first</option>
-                    </select>
-                </div>
-
-                <div class="form-group col-md-5">
-                    <select id="inputState" class="form-control-md categories">
-                        <option class="category-option">Beverages</option>
-                        <option class="category-option">Bread & Bakery</option>
-                        <option class="category-option">Dairy, Eggs & Cheese</option>
-                        <option class="category-option">Fruits & Vegetables</option>
-                        <option class="category-option">Grains, Pasta & Sides</option>
-                        <option class="category-option">Meat & Seafood</option>
-                        <option class="category-option">Sweets</option>
-                        <option class="category-option">Snacks</option>
-                        <option class="category-option">Sauces</option>
-                        <option class="category-option">Tea & Coffee</option>
-                    </select>
-                </div>
+            <div class="logo">
+                 <a class="navbar-brand" href="#"><i class="fa fa-bolt" aria-hidden="true"></i>Shop</a>
             </div>
-            <ul class="navbar-nav mr-4 d-flex">
-                <li>
-                <form class="form-inline search">
-                    <input class="form-control mr-sm-2 input-search" type="search" placeholder="Search" aria-label="Search">
-<!--                    <button class="btn btn-outline-warning my-2 my-sm-0 search-button" type="submit"><i class="fa fa-search"></i></button>-->
-                </form>
-                </li>
+
+                <div class="sort-search d-flex align-items-center justify-content-around">
+                    <div class="form-group  sort-search-wrapper">
+                        <select id="inputState" class="form-control-md select-sort">
+                            <option value="price-exp">Expensive first</option>
+                            <option value="price-cheap">Cheap first</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group sort-search-wrapper">
+                        <select id="inputState" class="form-control-md categories">
+                            <option class="category-option">Beverages</option>
+                            <option class="category-option">Bread & Bakery</option>
+                            <option class="category-option">Dairy, Eggs & Cheese</option>
+                            <option class="category-option">Fruits & Vegetables</option>
+                            <option class="category-option">Grains, Pasta & Sides</option>
+                            <option class="category-option">Meat & Seafood</option>
+                            <option class="category-option">Sweets</option>
+                            <option class="category-option">Snacks</option>
+                            <option class="category-option">Sauces</option>
+                            <option class="category-option">Tea & Coffee</option>
+                        </select>
+                    </div>
+                </div>
+                <ul class="navbar-nav d-flex ">
+                    <li>
+                        <form class="form-inline search">
+                            <input class="form-control mr-sm-2 input-search" type="search" placeholder="Search" aria-label="Search">
+                            <!--                    <button class="btn btn-outline-warning my-2 my-sm-0 search-button" type="submit"><i class="fa fa-search"></i></button>-->
+                        </form>
+                    </li>
 
 
 
-            <li class="nav-item d-flex align-center">
-<!--                <a class="nav-link " data-value="team" href="#">Team</a>-->
-                <button class="btn btn-sm btn-success btn-history" data-bs-toggle="modal" data-bs-target="#historyModal">HISTORY</button>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link " data-value="contact" href="#">Contact</a>
-            </li>
+                    <li class="nav-item d-flex align-center">
+                        <!--                <a class="nav-link " data-value="team" href="#">Team</a>-->
+                        <button class="btn btn-sm btn-success btn-history" data-bs-toggle="modal" data-bs-target="#historyModal">HISTORY</button>
+                    </li>
+<!--                    <li class="nav-item ">-->
+<!--                        <a class="nav-link " data-value="contact" href="#">Contact</a>-->
+<!--                    </li>-->
 
-                <li class="nav-item">
-                    <a class="nav-link bg-light text-info cart" data-value="blog" data-bs-toggle="modal" data-bs-target="#cartModal" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                </li>
-        </ul>
-        </div>
-        </div>
-</nav>
+                </ul>
+            <div class="cart-wrapper">
+                <a class="nav-link bg-light text-info cart " data-value="blog" data-bs-toggle="modal" data-bs-target="#cartModal" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+            </div>
+            </div>
+
+    </nav>
 
 </header>
 
 <div class="cards">
-    <div class="container">
-        <div class="row row-cols-1 row-cols-md-4 list-of-cards">
+    <div class="container ">
+        <div class="row   list-of-cards">
 
 
 
@@ -93,7 +91,7 @@
 <!--            </div>-->
         </div>
 
-
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
         <script src="main.js" type="module"></script>
 </body>
 </html>

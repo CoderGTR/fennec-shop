@@ -26,7 +26,7 @@ export default class ViewRecord {
 
     renderCard = ({ID, PRODUCT_NAME, MANUFACTURE, CATEGORY, INGRIDIENTS , AMOUNT, UNITS, PRICE, IMG_LINK, val}) => {
         return `
-            <div class="col mb-4">
+            <div class="col col-sm-2 col-md-3  mb-4 record">
                 <div class="card text-center bg-light border-secondary h-100">
                     <img src="${IMG_LINK}" class="card-img-top" alt="${PRODUCT_NAME+'image'}">
                     <div class="card-body d-flex flex-column justify-content-between">
